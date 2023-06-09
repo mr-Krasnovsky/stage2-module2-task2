@@ -17,7 +17,4 @@ public class ContextListener implements ServletContextListener {
         servletContext.setAttribute("servletTimeInit", servletTimeInit);
     }
 
-    @Override
-    public void contextDestroyed(ServletContextEvent servletContextEvent) {
-    }
 }

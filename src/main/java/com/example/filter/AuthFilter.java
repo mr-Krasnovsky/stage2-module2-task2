@@ -12,10 +12,6 @@ import javax.servlet.http.*;
 
 public class AuthFilter implements Filter {
 
-    @Override
-    public void init(FilterConfig config) throws ServletException {
-    }
-
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;

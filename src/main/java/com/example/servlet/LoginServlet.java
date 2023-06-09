@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
         if (user == null) {
             response.sendRedirect("/login.jsp");
         } else {
-            response.sendRedirect("user/hello.jsp");
+            response.sendRedirect("/user/hello.jsp");
         }
     }
 
@@ -32,11 +32,10 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         if (login != null && password != null && !login.isEmpty() && !password.isEmpty()) {
             boolean validLogin = usersRepo.getUsers().contains(login);
-            boolean validPassword = (password != null && !password.isEmpty());
 
-            if (validLogin && validPassword) {
+            if (validLogin && password != null && !password.isEmpty()) {
                 request.getSession().setAttribute("user", login);
-                response.sendRedirect("user/hello.jsp");
+                response.sendRedirect("/user/hello.jsp");
             } else {
                 request.getRequestDispatcher("/login.jsp").forward(request, response);
             }
